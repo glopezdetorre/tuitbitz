@@ -1,2 +1,0 @@
-defmodule Tuit do
-end

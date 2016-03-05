@@ -1,10 +1,11 @@
-defmodule Tuit.Mixfile do
+defmodule Tuitbitz.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :tuit,
+    [app: :tuitbitz,
      version: "0.0.1",
      elixir: "~> 1.2",
+     escript: escript_config,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
@@ -14,7 +15,7 @@ defmodule Tuit.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [applications: [:logger, :extwitter]]
   end
 
   # Dependencies can be Hex packages:
@@ -27,6 +28,13 @@ defmodule Tuit.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:oauth, github: "tim/erlang-oauth"},
+      {:extwitter, "~> 0.6.2"}
+    ]
+  end
+
+  defp escript_config do
+    [ main_module: Tuitbitz.CLI ]
   end
 end

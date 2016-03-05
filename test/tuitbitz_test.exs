@@ -1,4 +1,4 @@
-defmodule TuitTest do
+defmodule TuitbitzTest do
   use ExUnit.Case
   doctest Tuit
 
